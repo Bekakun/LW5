@@ -1,28 +1,38 @@
 package com.example.lab5.services;
 
-import com.example.lab5.models.User;
+import com.example.lab5.models.UserModel;
 import com.example.lab5.repositories.UserRepository;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
-        if (user != null) {
-            return org.springframework.security.core.userdetails.User.withUsername(user.getEmail())
-                    .password(user.getPassword())
-                    .build();
-        }
-        return null;
+    public List<UserModel> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public UserModel saveUser(UserModel user) {
+        return userRepository.save(user);
+    }
+
+    public UserModel register(String username, String password) {
+        UserModel user = new UserModel();
+        user.setUsername(username);
+        user.setPassword(passwordEncoder.encode(password));
+        return userRepository.save(user);
+    }
+
+    public Optional<UserModel> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }

@@ -1,10 +1,12 @@
 package com.example.lab5.repositories;
 
-import com.example.lab5.models.User;
+import com.example.lab5.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email);
+public interface UserRepository extends JpaRepository<UserModel, Long> {
+    Optional<UserModel> findByUsername(String username);
 }
