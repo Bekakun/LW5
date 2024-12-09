@@ -1,80 +1,246 @@
+/* Общий стиль для всего текста на странице */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif; /* Выберите желаемый шрифт */
+    color: #333; /* Цвет текста */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f9f9f9; /* Фоновый цвет */
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    color: #4CAF50;
-}
-
-form, table {
-    margin: 20px auto;
-    width: 80%;
-    max-width: 500px;
-    background: white;
+/* Общий стиль контейнера */
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: 50px auto;
     padding: 20px;
+    background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+/* Стили заголовков */
+h1 {
+    font-size: 24px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
 }
 
-input, textarea, select, button {
+/* Стили для полей ввода */
+form input, form select, form textarea {
     width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
+/* Плейсхолдеры */
+form input::placeholder, form textarea::placeholder {
+    color: #888;
+    font-size: 16px;
+}
+
+/* Стили для кнопок */
 button {
-    background-color: #9206ef;
-    color: white;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
     border: none;
+    border-radius: 8px;
+    font-size: 18px;
     cursor: pointer;
+    text-align: center;
+    display: block;
 }
 
-button:hover {
-    background-color: #061164;
+/* Кнопка Login */
+button.login-btn {
+    background-color: #4CAF50; /* Зеленая кнопка */
+    color: white;
 }
 
+button.login-btn:hover {
+    background-color: #45a049;
+}
+
+/* Кнопка Register */
+button.register-btn {
+    background-color: #3498db; /* Синяя кнопка */
+    color: white;
+}
+
+button.register-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Выравнивание ссылок-кнопок */
+.register-link a {
+    display: block;
+    padding: 15px;
+    background-color: #3498db; /* Синяя кнопка */
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.register-link a:hover {
+    background-color: #2980b9;
+}
+
+/* Стили для таблицы на странице task list */
 table {
-    width: 90%;
-    margin: 20px auto;
+    width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 12px;
     text-align: left;
 }
 
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+th {
+    background-color: #f4f4f4;
 }
 
-table th {
-    background-color: #ed053d;
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Стили для кнопок в таблице */
+button.table-btn {
+    padding: 10px 15px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #3498db;
     color: white;
-    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-a {
-    display: inline-block;
-    margin: 20px auto;
+button.table-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Общий стиль кнопок */
+.button {
+    display: block;
+    width: 100%; /* Занимает всю ширину контейнера */
+    padding: 15px;
+    margin: 15px 0; /* Расстояние между кнопками */
+    font-size: 18px;
     text-align: center;
-    color: #c605f4;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none; /* Убирает подчеркивание для ссылок */
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Стиль кнопки Add Task */
+.add-task-btn {
+    background-color: #4CAF50; /* Зеленый цвет */
+}
+
+.add-task-btn:hover {
+    background-color: #45a049; /* Более темный зеленый при наведении */
+}
+
+/* Стиль кнопки Tasks List */
+.tasks-list-btn {
+    background-color: #3498db; /* Синий цвет */
+}
+
+.tasks-list-btn:hover {
+    background-color: #2980b9; /* Более темный синий при наведении */
+}
+
+/* Стиль кнопки Log Out */
+.logout-btn {
+    background-color: #e74c3c; /* Красный цвет */
+}
+
+.logout-btn:hover {
+    background-color: #c0392b; /* Более темный красный при наведении */
+}
+
+/* Заголовок слева */
+.left-align {
+    font-size: 24px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Общий стиль таблицы */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+/* Стиль для границ таблицы */
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Цвет фона заголовка таблицы */
+th {
+    background-color: #f4f4f4;
+}
+
+/* Цвет фона для четных строк таблицы */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Цвет фона для строк при наведении */
+tbody tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Кнопка "Back to Home" */
+.home-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
-a:hover {
-    text-decoration: underline;
+.home-btn:hover {
+    background-color: #45a049; /* Более темный зеленый при наведении */
 }
