@@ -26,6 +26,9 @@ public class UserService {
     }
 
     public UserModel register(String username, String password) {
+        if (userRepository.findByUsername(username).isPresent()) {
+            throw new IllegalArgumentException("Пользователь с таким именем уже существует");
+        }
         UserModel user = new UserModel();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));

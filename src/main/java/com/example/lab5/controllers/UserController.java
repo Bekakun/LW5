@@ -25,6 +25,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    public String redirectToLogin() {
+        return "redirect:/login";
+    }
+
     @GetMapping("/login")
     public String login() {
         return "login";
